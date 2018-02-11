@@ -1,0 +1,16 @@
+html {
+    display: table;
+    margin: auto;
+}
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+h.ex1{
+  font: 28px arial, sans-serif;
+  margin-top: 200px;
+}
+pad.text1{
+  margin-top: 200px;
+}
