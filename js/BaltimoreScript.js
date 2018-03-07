@@ -15,7 +15,7 @@
  * if you want to instead set the inner content of an HTML node you can possibly use `element.innerText = `
  */
 
-const ul = document.getElementById('data');
+const ul = document.getElementById('tag');
 const url = "https://data.baltimorecity.gov/resource/citations.json";
 
 /**
@@ -31,7 +31,7 @@ fetch(url)
 .then(json => {
   for(let i = 0; i < json.length; i++){
     console.log(json[i]);
-    ul.innerHTML += "<li><a>" + json[i].tag + "</a></li>";
+    ul.innerHTML += "<li><a>Tag: " + json[i].tag + "</a><br> Balance Due: " +json[i].balance + "</li>";
   }
 });
 
@@ -45,7 +45,7 @@ function searchFilter(){
   let input, filter, ul, li, a;
   input = document.getElementById("searchInput");
   filter = input.value.toUpperCase();
-  ul = document.getElementById("data");
+  ul = document.getElementById("tag");
   li = ul.getElementsByTagName("li");
 
   for(let i = 0; i < li.length; i++){

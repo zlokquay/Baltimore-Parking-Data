@@ -1,11 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-
-h.ex1{
-  font-family: Montserrat;
-  font-size: 44px;
-}
-
-li{
-  font: 24px Montserrat, sans-serif;
-  display: flex;
+.resizedTextbox {
+  width: 100px;
+  height: 30px;
+  margin-top: 5px;
+  padding: : 1px;
 }
