@@ -30,8 +30,8 @@ fetch(url)
 })
 .then(json => {
   for(let i = 0; i < json.length; i++){
-    //console.log(json[i].citation);
-    ul.innerHTML += "<li><a>" +json[i].tag + "</a></li>";
+    console.log(json[i]);
+    ul.innerHTML += "<li><a>" + json[i].tag + "</a></li>";
   }
 });
 

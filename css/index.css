@@ -1,23 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-h1{
+h.ex1{
   font-family: Montserrat;
-  font-size: 28px
-  width: 100%;
-  text-align: center;
-}
-
-ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
+  font-size: 44px;
 }
 
 li{
   font: 24px Montserrat, sans-serif;
   display: flex;
 }
-
-/* ul {
-  display: flex;
-} */
