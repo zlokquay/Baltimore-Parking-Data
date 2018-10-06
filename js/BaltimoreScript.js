@@ -16,22 +16,21 @@
  */
 
 const ul = document.getElementById('tag');
-const url = "https://data.baltimorecity.gov/resource/citations.json";
-
+let tagArr = [];
 /**
  * fetch pulls data using an HTTP request. It takes the url argument to
  * know where to pull data from. .then() just means do this next bit with
  * the result of the previous function. With the response it formats it into
  *
  */
-fetch(url)
+fetch(conf.url)
 .then(response => {
   return response.json()
 })
 .then(json => {
   for(let i = 0; i < json.length; i++){
-    console.log(json[i]);
-    ul.innerHTML += "<li><a>Tag: " + json[i].tag + "</a><br> Balance Due: " +json[i].balance + "</li>";
+    tagArr[i] = json[i];
+    //console.log(tagArr[i]);
   }
 });
 
@@ -42,18 +41,18 @@ fetch(url)
  * things in the list that match the input.
  */
 function searchFilter(){
-  let input, filter, ul, li, a;
+  //UNCOMMENT THIS LINE TO REMOVE A PSEUDO-SAVED LIST
+  ul.innerHTML = "";
+
+  let input, filter;
   input = document.getElementById("searchInput");
   filter = input.value.toUpperCase();
-  ul = document.getElementById("tag");
-  li = ul.getElementsByTagName("li");
 
-  for(let i = 0; i < li.length; i++){
-    a = li[i].getElementsByTagName("a")[0];
-    if(a.innerHTML.toUpperCase().indexOf(filter) > -1){
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
+  for(let i = 0; i < tagArr.length; i++){
+    if(tagArr[i].tag.includes(filter)){
+      ul.innerHTML += "<li>Tag: " + tagArr[i].tag +
+         "<br> Balance Due: " + tagArr[i].balance +
+         "<br> ";
     }
   }
 }
