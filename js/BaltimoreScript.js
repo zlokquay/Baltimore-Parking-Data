@@ -15,24 +15,35 @@
  * if you want to instead set the inner content of an HTML node you can possibly use `element.innerText = `
  */
 
-const ul = document.getElementById('tag');
-let tagArr = [];
+// const ul = document.getElementById('tag');
+// let tagArr = [];
 /**
  * fetch pulls data using an HTTP request. It takes the url argument to
  * know where to pull data from. .then() just means do this next bit with
  * the result of the previous function. With the response it formats it into
  *
  */
-fetch(conf.url)
-.then(response => {
-  return response.json()
-})
-.then(json => {
-  for(let i = 0; i < json.length; i++){
-    tagArr[i] = json[i];
-    //console.log(tagArr[i]);
+
+function fetchURL(url) {
+  const search = document.getElementById('searchInput').value;
+  const options = {
+    method: 'GET',
   }
-});
+  url += "?tag=" + search;
+
+  fetch(url, options)
+  .then(response => {
+    if (response.ok && response.status === 200) {
+      return response.json();
+    }
+    console.log(response);
+  })
+  .then(json => searchFilter(json))
+  .catch(error => {
+    console.log("Error fetching " + conf.url);
+    console.log(error);
+  });
+}
 
 /**
  * searchFilter() is called by the html when a key is released
@@ -40,8 +51,9 @@ fetch(conf.url)
  * box and shoves it to uppercase letters. Then it searches for
  * things in the list that match the input.
  */
-function searchFilter(){
+function searchFilter(tagArr) {
   //UNCOMMENT THIS LINE TO REMOVE A PSEUDO-SAVED LIST
+  const ul = document.getElementById('tag-list');
   ul.innerHTML = "";
 
   let input, filter;
@@ -49,10 +61,18 @@ function searchFilter(){
   filter = input.value.toUpperCase();
 
   for(let i = 0; i < tagArr.length; i++){
-    if(tagArr[i].tag.includes(filter)){
+    if(tagArr[i].tag === filter) {
       ul.innerHTML += "<li>Tag: " + tagArr[i].tag +
          "<br> Balance Due: " + tagArr[i].balance +
          "<br> ";
     }
   }
+}
+
+document.getElementById('search-btn').onclick = function(e) {
+  // const button = e.target;
+
+  const search = document.getElementById('searchInput').value;
+
+  fetchURL(conf.url)
 }
