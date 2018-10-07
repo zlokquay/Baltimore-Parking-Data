@@ -25,7 +25,10 @@
  */
 
 function fetchURL(url) {
-  const search = document.getElementById('searchInput').value;
+  let search = document.getElementById('searchInput');
+  if (search && typeof search === 'string') {
+    search = search.value.toUpperCase();
+  }
   const options = {
     method: 'GET',
   }
@@ -36,22 +39,21 @@ function fetchURL(url) {
     if (response.ok && response.status === 200) {
       return response.json();
     }
-    console.log(response);
   })
-  .then(json => searchFilter(json))
+  .then(json => renderTags(json))
   .catch(error => {
-    console.log("Error fetching " + conf.url);
+    console.log("Error fetching " + url);
     console.log(error);
   });
 }
 
 /**
- * searchFilter() is called by the html when a key is released
+ * renderTags() is called by the html when a key is released
  * inside of the search box. It reads what is currently in the
  * box and shoves it to uppercase letters. Then it searches for
  * things in the list that match the input.
  */
-function searchFilter(tagArr) {
+function renderTags(tagArr) {
   //UNCOMMENT THIS LINE TO REMOVE A PSEUDO-SAVED LIST
   const ul = document.getElementById('tag-list');
   ul.innerHTML = "";
@@ -70,9 +72,5 @@ function searchFilter(tagArr) {
 }
 
 document.getElementById('search-btn').onclick = function(e) {
-  // const button = e.target;
-
-  const search = document.getElementById('searchInput').value;
-
-  fetchURL(conf.url)
+  fetchURL(conf.url);
 }
