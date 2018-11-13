@@ -38,6 +38,7 @@
     if (searchValue && typeof searchValue === 'string') {
       return searchValue.toUpperCase();
     }
+
     return null;
   }
 
