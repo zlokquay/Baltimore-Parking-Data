@@ -51,11 +51,27 @@ function fetchURL(url) {
 function renderTags(json) {
   const ul = document.getElementById('tag-list');
   ul.innerHTML = "";
-  ul.innerHTML += "<li class=\"tag-return\">Tag: " + json[0].tag +
-                  "<br> Balance Due: " + json[0].balance +
-                  "<br> ";
+  if(isEmptyObject(json)){
+    ul.innerHTML += "<li class=\"tag-return\">Tag: " + document.getElementById('searchInput').value +
+                    "<br> Balance Due: " + 0.00 +
+                    "<br> ";
+  } else {
+    ul.innerHTML += "<li class=\"tag-return\">Tag: " + json[0].tag +
+                    "<br> Balance Due: " + json[0].balance +
+                    "<br> ";
+  }
 }
 
 document.getElementById('search-btn').onclick = function(e) {
   fetchURL(conf.url);
+}
+
+function isEmptyObject(obj) {
+  var name;
+  for (name in obj) {
+      if (obj.hasOwnProperty(name)) {
+          return false;
+      }
+  }
+  return true;
 }
