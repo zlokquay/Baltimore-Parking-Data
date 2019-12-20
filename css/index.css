@@ -1,10 +1,103 @@
-.resizedTextbox {
-  width: 100px;
-  height: 33px;
-  margin-top: 5px;
-  padding: : 5px;
+html
+{
+  background: lightgray;
+  overflow: hidden;
+}
+
+h1
+{
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  font-weight: lighter;
+  font-size: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+}
+
+.formzone
+{
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  font-weight: lighter;
+  font-size: 36px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+}
+
+.tag-return{
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  font-weight: lighter;
+  font-size: 24px;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+}
+
+.tag-return:hover{
+  background: lightgrey;
 }
 
 #search-btn {
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  font-size: 24px;
   cursor: pointer;
+}
+
+#searchInput{
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 600px){
+  html{
+    overflow: visible;
+  }
+
+  h1{
+    font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+    font-weight: lighter;
+    font-size: 30px;
+    padding-top: 30%;
+    padding-left: 0px;
+    width: 100%;
+  }
+
+  .formzone{
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  font-weight: lighter;
+  font-size: 18px;
+  padding-left: 0px;
+  width: 100%;
+  }
+
+  .tag-return{
+  font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+  font-weight: lighter;
+  font-size: 18px;
+  padding-left: 0px;
+  width: 100%;
+  }
+
+  #search-btn {
+    font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    padding-left: 0px;
+  }
+  
+  #searchInput{
+    font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+    font-size: 14px;
+    padding-left: 0px;
+  }
 }
