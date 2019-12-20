@@ -44,15 +44,14 @@ function fetchURL(url) {
 }
 
 /**
- * renderTags() is called by the html when a key is released
- * inside of the search box. It reads what is currently in the
- * box and shoves it to uppercase letters. Then it searches for
- * things in the list that match the input.
+ * renderTags() is called by the html when Search button is clicked
+ * It reads what is currently in the box and shoves it to uppercase 
+ * letters. Then it searches for things in the list that match the input.
  */
 function renderTags(json) {
   const ul = document.getElementById('tag-list');
   ul.innerHTML = "";
-  ul.innerHTML += "<li>Tag: " + json[0].tag +
+  ul.innerHTML += "<li class=\"tag-return\">Tag: " + json[0].tag +
                   "<br> Balance Due: " + json[0].balance +
                   "<br> ";
 }
